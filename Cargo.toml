@@ -1,0 +1,6 @@
+[package]
+name = "sshaddr"
+version = "0.1.0"
+authors = ["Nicola Montecchio <nicola.montecchio@gmail.com>"]
+
+[dependencies]
