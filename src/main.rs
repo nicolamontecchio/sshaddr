@@ -21,12 +21,6 @@ fn get_ssh_config_path() -> Option<path::PathBuf> {
 
 
 fn main() {
-
-  match get_ssh_config_path() {
-    Some(path) => println!("path to ssh config is: {}", path.as_path().to_str().unwrap()),
-    None => println!("found no path :(")
-  }
-
-
-
+  get_ssh_config_path()
+    .map( |path| println!("path to ssh config is: {}", path.as_path().to_str().unwrap()) );
 }
