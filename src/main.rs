@@ -56,7 +56,9 @@ fn get_hostname(fpath : path::PathBuf, host : String) -> Option<String> {
 }
 
 fn main() {
-  get_ssh_config_path()
-    .and_then( |p| get_hostname(p, "tocai".to_string()))
-    .map_or( (), |h| println!("{}", h) )
+  for arg in env::args() {
+    get_ssh_config_path()
+      .and_then( |p| get_hostname(p, arg.to_string()))
+      .map_or( (), |h| println!("{}", h) )
+  }
 }
