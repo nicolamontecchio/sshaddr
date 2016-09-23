@@ -4,13 +4,16 @@ use std::path;
 
 fn get_ssh_config_path() -> Option<path::PathBuf> {
   // get the path to ~/.ssh/config for the current user
-  env::home_dir().map(
+  env::home_dir().and_then (
     |h| {
       let mut sshpath = path::PathBuf::new();
       sshpath.push(h);
       sshpath.push(".ssh");
       sshpath.push("config");
-      sshpath
+      match sshpath.exists() {
+        true => Some(sshpath),
+        false => None
+      }
     }
   )
 }
