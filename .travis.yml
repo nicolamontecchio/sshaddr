@@ -1,3 +1,10 @@
 language: rust
 rust:
-  - 1.11.0
+- 1.11.0
+deploy:
+  provider: releases
+  api_key:
+    secure: O+jQeyelaUgGn6FTP63wbPmgXOWpshHO5llQheBGcaaYvkn6OlbHvYNk1WFqFEmEgHUlrpl1qewayf7/w2Gg8myAbZ/8jisDnpPOz5r+t/Drw6loeJfd2zh+VkVlrm4G+5ybt7TrH5fbHgmonZ2roYsiFB0gjs/VpgZvCLLYFD8O8Zsd8DnfhAKC/MVju/S7CBod2XZBOAnX0MSknpuDchKdJ6MrSvcqSlCRdzB5ZoKzx/PUKvtm2I2SKG/2c81jf5xx7m/ECEpA0QZbiYFGR7G3BY2/cv/6NlVtuFcrENkvuSnjsI86tnmjWNSXGJ13fL/RpQty+QUoEeRuWof4ucpbU2p0jUZa3LhiB63cuaCAg/iCZWdLh5W0Rej5TQr+BslPvahJ+uOGfkj9TLwHLEX+LlWcny6EnWM4PXEBUAM+N1MoDASwDVVoOKwKc6L3ImuY7trRJ8qCYj8eBWUc2P/iJ1e3L+3zjniZkaWJqLrpEpFSXS0wnl1DL08USxITADjMurvuP08KbdTbuUfo7tDStjzhXzXJapskKoDx4c6KuwBqPnnTa4ffnXGQlG4Y+8T1V9ruiFuC8Ja0usvqp+AYBFy39h3jjjPE7c93rIyJKbUlTi39pVhckhOWkAzUY2NgtOGCuZMANPEXbeujROdgPSuLS9u39WaYpnjMPdY=
+  file: target/release/sshaddr
+  on:
+    repo: nicolamontecchio/sshaddr
