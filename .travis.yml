@@ -9,3 +9,4 @@ deploy:
   file: target/release/sshaddr
   on:
     repo: nicolamontecchio/sshaddr
+  skip_cleanup: true
