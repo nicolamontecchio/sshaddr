@@ -31,8 +31,10 @@ fn get_hostname(fpath : path::PathBuf, host : String) -> Option<String> {
   let hostname_re = Regex::new(r"^(?i)hostname\W+(.*)").unwrap();
 
   let p : &path::Path = fpath.as_path();
-  match File::open(p) {
-    Ok(f) => {
+
+  File::open(p)
+    .ok()
+    .and_then(|f|  {
       let mut host_found = false;
       let lines = BufReader::new(&f);
       for line in lines.lines() {
@@ -44,14 +46,11 @@ fn get_hostname(fpath : path::PathBuf, host : String) -> Option<String> {
           }
         } else if hostname_re.is_match(&l) && host_found {
           let line_hostname = hostname_re.captures(&l).unwrap().at(1).unwrap();
-          // println!("{}", line_hostname);
           return Some(line_hostname.to_string())
         }
       }
-      None
-    },
-    Err(_) => (None)
-  }
+      return None
+    })
 
 }
 
